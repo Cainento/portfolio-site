@@ -3,15 +3,22 @@
 import Link from 'next/link'
 import { Github, Linkedin, Youtube, Instagram, Mail } from 'lucide-react'
 import { motion } from 'framer-motion'
+import type { Dictionary } from '@/dictionaries'
+import type { Locale } from '@/i18n.config'
 
 const socialLinks = [
-  { name: 'GitHub', icon: Github, href: 'https://github.com', ariaLabel: 'GitHub profile' },
-  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com', ariaLabel: 'LinkedIn profile' },
-  { name: 'YouTube', icon: Youtube, href: 'https://youtube.com/@GlobalLearner', ariaLabel: 'YouTube channel Global Learner' },
-  { name: 'Instagram', icon: Instagram, href: 'https://instagram.com', ariaLabel: 'Instagram profile' },
+  { name: 'GitHub', icon: Github, href: 'https://github.com/Cainento', ariaLabel: 'GitHub profile' },
+  { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/avilacainan', ariaLabel: 'LinkedIn profile' },
+  { name: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/@cainento', ariaLabel: 'YouTube channel Cainento' },
+  { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/cainento/', ariaLabel: 'Instagram profile' },
 ]
 
-export default function Footer() {
+interface FooterProps {
+  dict: Dictionary
+  lang: Locale
+}
+
+export default function Footer({ dict, lang }: FooterProps) {
   const currentYear = new Date().getFullYear()
 
   return (
@@ -24,32 +31,27 @@ export default function Footer() {
               Avila Cainan
             </h3>
             <p className="text-gray-600 dark:text-gray-400">
-              Full-Stack Developer & Creative Technologist
+              {dict.footer.role}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-heading font-semibold mb-4">{dict.footer.quickLinks}</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
-                  About
+                <Link href={`/${lang}/about`} className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
+                  {dict.nav.about}
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio" className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
-                  Portfolio
+                <Link href={`/${lang}/portfolio`} className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
+                  {dict.nav.portfolio}
                 </Link>
               </li>
               <li>
-                <Link href="/experience" className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
-                  Experience
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
-                  Contact
+                <Link href={`/${lang}/contact`} className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
+                  {dict.nav.contact}
                 </Link>
               </li>
             </ul>
@@ -57,7 +59,7 @@ export default function Footer() {
 
           {/* Social Links */}
           <div>
-            <h4 className="font-heading font-semibold mb-4">Connect</h4>
+            <h4 className="font-heading font-semibold mb-4">{dict.footer.connect}</h4>
             <div className="flex space-x-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon
@@ -78,26 +80,22 @@ export default function Footer() {
               })}
             </div>
             <a
-              href="mailto:contact@avilacainan.com"
+              href="mailto:cainento@outlook.com"
               className="flex items-center space-x-2 mt-4 text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
             >
               <Mail className="w-4 h-4" />
-              <span>contact@avilacainan.com</span>
+              <span>cainento@outlook.com</span>
             </a>
           </div>
         </div>
 
         <div className="pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-gray-600 dark:text-gray-400">
-          <p>&copy; {currentYear} Avila Cainan. All rights reserved.</p>
+          <p>&copy; {currentYear} Avila Cainan. {dict.footer.copyright}</p>
           <p className="mt-2 text-sm">
-            Built with Next.js, Tailwind CSS, and Framer Motion
+            {dict.footer.builtWith}
           </p>
         </div>
       </div>
     </footer>
   )
 }
-
-
-
-

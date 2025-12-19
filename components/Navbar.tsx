@@ -6,21 +6,27 @@ import { usePathname } from 'next/navigation'
 import { Moon, Sun, Menu, X } from 'lucide-react'
 import { useTheme } from './ThemeProvider'
 import { motion, AnimatePresence } from 'framer-motion'
+import LanguageToggle from './LanguageToggle'
+import type { Dictionary } from '@/dictionaries'
+import type { Locale } from '@/i18n.config'
 
-const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Portfolio', href: '/portfolio' },
-  { name: 'Experience', href: '/experience' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Contact', href: '/contact' },
-]
+interface NavbarProps {
+  dict: Dictionary
+  lang: Locale
+}
 
-export default function Navbar() {
+export default function Navbar({ dict, lang }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   const { theme, toggleTheme } = useTheme()
+
+  const navItems = [
+    { name: dict.nav.home, href: `/${lang}` },
+    { name: dict.nav.about, href: `/${lang}/about` },
+    { name: dict.nav.portfolio, href: `/${lang}/portfolio` },
+    { name: dict.nav.contact, href: `/${lang}/contact` },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,20 +36,26 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const isActive = (href: string) => {
+    if (href === `/${lang}`) {
+      return pathname === `/${lang}` || pathname === `/${lang}/`
+    }
+    return pathname.startsWith(href)
+  }
+
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg'
+        : 'bg-transparent'
+        }`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href={`/${lang}`} className="flex items-center space-x-2">
             <span className="text-2xl md:text-3xl font-heading font-bold gradient-text">
               Avila Cainan
             </span>
@@ -55,14 +67,13 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative font-medium transition-colors ${
-                  pathname === item.href
-                    ? 'text-primary-500'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-500'
-                }`}
+                className={`relative font-medium transition-colors ${isActive(item.href)
+                  ? 'text-primary-500'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-primary-500'
+                  }`}
               >
                 {item.name}
-                {pathname === item.href && (
+                {isActive(item.href) && (
                   <motion.div
                     layoutId="navbar-indicator"
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-primary rounded-full"
@@ -72,8 +83,10 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Theme Toggle & Mobile Menu Button */}
-          <div className="flex items-center space-x-4">
+          {/* Language Toggle, Theme Toggle & Mobile Menu Button */}
+          <div className="flex items-center space-x-3">
+            <LanguageToggle currentLocale={lang} />
+
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
@@ -116,11 +129,10 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-4 py-2 rounded-lg transition-colors ${
-                    pathname === item.href
-                      ? 'bg-primary-500 text-white'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
+                  className={`block px-4 py-2 rounded-lg transition-colors ${isActive(item.href)
+                    ? 'bg-primary-500 text-white'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -132,7 +144,3 @@ export default function Navbar() {
     </motion.nav>
   )
 }
-
-
-
-

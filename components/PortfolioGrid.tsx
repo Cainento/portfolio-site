@@ -4,13 +4,15 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ExternalLink, Github } from 'lucide-react'
 import { Project } from '@/data/projects'
+import type { Dictionary } from '@/dictionaries'
 
 interface PortfolioGridProps {
   projects: Project[]
   onProjectClick: (project: Project) => void
+  dict: Dictionary
 }
 
-export default function PortfolioGrid({ projects, onProjectClick }: PortfolioGridProps) {
+export default function PortfolioGrid({ projects, onProjectClick, dict }: PortfolioGridProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {projects.map((project, index) => (
@@ -29,12 +31,13 @@ export default function PortfolioGrid({ projects, onProjectClick }: PortfolioGri
               src={project.image}
               alt={project.title}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-cover group-hover:scale-110 transition-transform duration-300"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <span className="px-3 py-1 bg-primary-500 text-white text-sm rounded-full">
-                {project.category}
+                {dict.portfolio.categories[project.category === 'AI Projects' ? 'ai' : project.category.toLowerCase().replace(' ', '') as keyof typeof dict.portfolio.categories] || project.category}
               </span>
             </div>
           </div>
@@ -43,7 +46,7 @@ export default function PortfolioGrid({ projects, onProjectClick }: PortfolioGri
               {project.title}
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
-              {project.description}
+              {dict.portfolio.projects[project.id as keyof typeof dict.portfolio.projects]?.description || project.description}
             </p>
             <div className="flex flex-wrap gap-2 mb-4">
               {project.techStack.slice(0, 3).map((tech) => (
@@ -70,7 +73,7 @@ export default function PortfolioGrid({ projects, onProjectClick }: PortfolioGri
                   className="flex items-center space-x-1 hover:text-primary-500 transition-colors"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  <span>Live</span>
+                  <span>{dict.portfolio.live}</span>
                 </a>
               )}
               {project.githubUrl && (
@@ -82,7 +85,7 @@ export default function PortfolioGrid({ projects, onProjectClick }: PortfolioGri
                   className="flex items-center space-x-1 hover:text-primary-500 transition-colors"
                 >
                   <Github className="w-4 h-4" />
-                  <span>Code</span>
+                  <span>{dict.portfolio.code}</span>
                 </a>
               )}
             </div>
@@ -92,7 +95,3 @@ export default function PortfolioGrid({ projects, onProjectClick }: PortfolioGri
     </div>
   )
 }
-
-
-
-

@@ -1,0 +1,193 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "portfolio": "Portfolio",
+        "contact": "Contact"
+    },
+    "hero": {
+        "subtitle": "Full-Stack Developer & Creative Technologist",
+        "description": "Crafting beautiful, functional, and innovative digital experiences that bridge technology and creativity.",
+        "viewWork": "View My Work",
+        "contactMe": "Contact Me"
+    },
+    "highlights": {
+        "title": "What I Do",
+        "description": "Combining technical expertise with creative vision to deliver exceptional digital experiences.",
+        "items": {
+            "webDev": {
+                "title": "Web Development",
+                "description": "Building modern, scalable web applications with cutting-edge technologies."
+            },
+            "aiAutomation": {
+                "title": "AI Automation",
+                "description": "Leveraging AI to automate processes and create intelligent solutions."
+            },
+            "design": {
+                "title": "Design",
+                "description": "Creating beautiful, user-centered designs that enhance user experience."
+            },
+            "innovation": {
+                "title": "Innovation",
+                "description": "Pushing boundaries and exploring new possibilities in technology."
+            }
+        }
+    },
+    "about": {
+        "title": "About",
+        "titleHighlight": "Me",
+        "paragraphs": {
+            "intro": "I am a full-stack developer passionate about technology and with a deep love for building innovative digital experiences. My journey in software development began in 2023, and since then, I have dedicated myself to mastering the art of creating beautiful, functional, and impactful applications.",
+            "focus": "My focus is at the intersection of technology and creativity, where I bring together cutting-edge web technologies, automation, and thoughtful design to solve real-world problems. I believe in writing clean, maintainable code, while always maintaining curiosity about emerging technologies.",
+            "current": "Currently, I am studying Software Engineering at UNIEGO, continuously expanding my knowledge and skills. When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my learning journey."
+        },
+        "downloadResume": "Download Resume"
+    },
+    "contact": {
+        "title": "Get in",
+        "titleHighlight": "Touch",
+        "description": "Have a project in mind or want to chat? I'd love to hear from you!",
+        "info": {
+            "title": "Contact Information",
+            "email": "Email",
+            "phone": "Phone",
+            "location": "Location",
+            "locationValue": "Brazil, Remote"
+        },
+        "social": {
+            "title": "Follow Me"
+        },
+        "form": {
+            "name": "Name",
+            "namePlaceholder": "Your name",
+            "email": "Email",
+            "emailPlaceholder": "your.email@example.com",
+            "message": "Message",
+            "messagePlaceholder": "Your message...",
+            "send": "Send Message",
+            "sending": "Sending...",
+            "success": "Thank you! Your message has been sent successfully. I'll get back to you soon.",
+            "error": "Oops! Something went wrong. Please try again or contact me directly via email."
+        }
+    },
+    "skills": {
+        "title": "Skills &",
+        "titleHighlight": "Expertise",
+        "description": "A comprehensive overview of my technical and professional skills.",
+        "categories": {
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "tools": "Tools",
+            "softSkills": "Soft Skills"
+        }
+    },
+    "portfolio": {
+        "title": "My",
+        "titleHighlight": "Portfolio",
+        "description": "A collection of my recent projects and work.",
+        "live": "Live",
+        "code": "Code",
+        "viewProject": "View Project",
+        "technologies": "Technologies",
+        "close": "Close",
+        "viewDemo": "View Live Demo",
+        "viewGithub": "View on GitHub",
+        "myRole": "My Role",
+        "challengesLabel": "Challenges",
+        "keyLearnings": "Key Learnings",
+        "categories": {
+            "all": "All",
+            "webapps": "Web Apps",
+            "ai": "AI Projects",
+            "design": "Design",
+            "experimental": "Experimental"
+        },
+        "projects": {
+            "1": {
+                "title": "Mind.IA",
+                "description": "Official website for mind.ia, a Brazilian AI agency focusing on automation and business intelligence.",
+                "longDescription": "Mind.IA is the official digital platform for a Brazilian AI agency. It showcases their expertise in automation and business intelligence through a sleek, modern interface. The site features high-performance animations, comprehensive service showcases, and seamless user interaction points.",
+                "role": "Lead Developer",
+                "challenges": [
+                    "Designing a premium, animation-heavy interface that maintains high performance and SEO scores",
+                    "Implementing a responsive \"mobile-first\" layout with complex interactive elements",
+                    "Creating a versatile content structure to manage services and portfolio cases"
+                ],
+                "learnings": [
+                    "Advanced Next.js 14 App Router patterns for agency sites",
+                    "Implementing accessible and performant animations using Framer Motion",
+                    "Optimizing business conversion paths through strategic UI components"
+                ]
+            },
+            "2": {
+                "title": "AI Logo Generator",
+                "description": "Generate unique logos using AI technology",
+                "longDescription": "An AI-powered logo generator that creates unique, professional logos based on user descriptions and preferences.",
+                "role": "Full-Stack Developer",
+                "challenges": [
+                    "Integrating OpenAI API effectively",
+                    "Optimizing image generation speed",
+                    "Handling API rate limits"
+                ],
+                "learnings": [
+                    "OpenAI API integration patterns",
+                    "Image processing and optimization",
+                    "API rate limiting strategies"
+                ]
+            },
+            "4": {
+                "title": "TeleCopy Pro",
+                "description": "Professional-grade Telegram channel copying solution for real-time synchronization and historic migration",
+                "longDescription": "TeleCopy Pro is a high-performance, professional-grade Telegram channel copying solution. Built with a modern microservices-inspired architecture, it allows users to synchronize messages between channels in real-time or perform historical migrations with ease.",
+                "role": "Full-Stack Developer",
+                "challenges": [
+                    "Implementing robust Telegram connection handling with Telethon and 2FA support",
+                    "Designing a scalable architecture for handling large historical message migrations",
+                    "Integrating Stripe for complex subscription management and billing"
+                ],
+                "learnings": [
+                    "Advanced Python and FastAPI service layer design",
+                    "Real-time message monitoring and processing at scale",
+                    "Secure session management and encrypted storage for sensitive Telegram credentials"
+                ]
+            },
+            "3": {
+                "title": "Portfolio Website",
+                "description": "Modern portfolio website with dark mode and animations",
+                "longDescription": "A modern, responsive portfolio website built with Next.js 14, featuring dark mode, smooth animations, and internationalization.",
+                "role": "Designer & Developer",
+                "challenges": [
+                    "Creating smooth animations",
+                    "Implementing dark mode",
+                    "Building an i18n system"
+                ],
+                "learnings": [
+                    "Framer Motion animation techniques",
+                    "Next.js App Router patterns",
+                    "Internationalization best practices"
+                ]
+            }
+        }
+    },
+    "footer": {
+        "role": "Full-Stack Developer & Creative Technologist",
+        "quickLinks": "Quick Links",
+        "connect": "Connect",
+        "copyright": "All rights reserved.",
+        "builtWith": "Built with Next.js, Tailwind CSS, and Framer Motion"
+    },
+    "errors": {
+        "notFound": {
+            "title": "404",
+            "heading": "Page Not Found",
+            "description": "Oops! The page you're looking for doesn't exist or has been moved.",
+            "backHome": "Back to Home"
+        }
+    },
+    "common": {
+        "loading": "Loading...",
+        "readMore": "Read More",
+        "viewAll": "View All",
+        "present": "Present"
+    }
+}

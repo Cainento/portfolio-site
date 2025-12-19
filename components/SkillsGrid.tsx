@@ -2,9 +2,19 @@
 
 import { motion } from 'framer-motion'
 import { skills } from '@/data/skills'
+import type { Dictionary } from '@/dictionaries'
 
-export default function SkillsGrid() {
-  const categories = ['Frontend', 'Backend', 'Tools', 'Soft Skills'] as const
+interface SkillsGridProps {
+  dict: Dictionary
+}
+
+export default function SkillsGrid({ dict }: SkillsGridProps) {
+  const categories = [
+    { key: 'Frontend', label: dict.skills.categories.frontend },
+    { key: 'Backend', label: dict.skills.categories.backend },
+    { key: 'Tools', label: dict.skills.categories.tools },
+    { key: 'Soft Skills', label: dict.skills.categories.softSkills },
+  ] as const
 
   return (
     <section className="section-padding bg-gray-50 dark:bg-gray-950">
@@ -17,19 +27,19 @@ export default function SkillsGrid() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-            Skills & <span className="gradient-text">Expertise</span>
+            {dict.skills.title} <span className="gradient-text">{dict.skills.titleHighlight}</span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            A comprehensive overview of my technical and professional skills.
+            {dict.skills.description}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {categories.map((category, categoryIndex) => {
-            const categorySkills = skills.filter((skill) => skill.category === category)
+            const categorySkills = skills.filter((skill) => skill.category === category.key)
             return (
               <motion.div
-                key={category}
+                key={category.key}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -37,7 +47,7 @@ export default function SkillsGrid() {
                 className="card p-6"
               >
                 <h3 className="text-2xl font-heading font-semibold mb-6 gradient-text">
-                  {category}
+                  {category.label}
                 </h3>
                 <div className="space-y-4">
                   {categorySkills.map((skill, index) => (
@@ -74,7 +84,3 @@ export default function SkillsGrid() {
     </section>
   )
 }
-
-
-
-

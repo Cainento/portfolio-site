@@ -2,31 +2,36 @@
 
 import { Code, Sparkles, Palette, Rocket } from 'lucide-react'
 import { motion } from 'framer-motion'
+import type { Dictionary } from '@/dictionaries'
 
-const highlights = [
-  {
-    icon: Code,
-    title: 'Web Development',
-    description: 'Building modern, scalable web applications with cutting-edge technologies.',
-  },
-  {
-    icon: Sparkles,
-    title: 'AI Automation',
-    description: 'Leveraging AI to automate processes and create intelligent solutions.',
-  },
-  {
-    icon: Palette,
-    title: 'Design',
-    description: 'Creating beautiful, user-centered designs that enhance user experience.',
-  },
-  {
-    icon: Rocket,
-    title: 'Innovation',
-    description: 'Pushing boundaries and exploring new possibilities in technology.',
-  },
-]
+interface HighlightsProps {
+  dict: Dictionary
+}
 
-export default function Highlights() {
+export default function Highlights({ dict }: HighlightsProps) {
+  const highlights = [
+    {
+      icon: Code,
+      title: dict.highlights.items.webDev.title,
+      description: dict.highlights.items.webDev.description,
+    },
+    {
+      icon: Sparkles,
+      title: dict.highlights.items.aiAutomation.title,
+      description: dict.highlights.items.aiAutomation.description,
+    },
+    {
+      icon: Palette,
+      title: dict.highlights.items.design.title,
+      description: dict.highlights.items.design.description,
+    },
+    {
+      icon: Rocket,
+      title: dict.highlights.items.innovation.title,
+      description: dict.highlights.items.innovation.description,
+    },
+  ]
+
   return (
     <section className="section-padding bg-white dark:bg-gray-900">
       <div className="container-custom">
@@ -38,11 +43,10 @@ export default function Highlights() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-            What I Do
+            {dict.highlights.title}
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Combining technical expertise with creative vision to deliver
-            exceptional digital experiences.
+            {dict.highlights.description}
           </p>
         </motion.div>
 
@@ -76,7 +80,3 @@ export default function Highlights() {
     </section>
   )
 }
-
-
-
-

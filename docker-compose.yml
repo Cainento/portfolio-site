@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio-site
+    restart: unless-stopped
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      # Change 'portfolio.local' to your desired domain or sub-domain
+      - "traefik.http.routers.portfolio.rule=Host(`avilacainan.com.br`)"
+      # Use 'web' for HTTP or 'websecure' for HTTPS depending on your setup
+      - "traefik.http.routers.portfolio.entrypoints=web"
+      - "traefik.http.services.portfolio.loadbalancer.server.port=3000"
+
+networks:
+  web:
+    external: true

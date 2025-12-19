@@ -1,0 +1,193 @@
+{
+    "nav": {
+        "home": "Início",
+        "about": "Sobre",
+        "portfolio": "Portfólio",
+        "contact": "Contato"
+    },
+    "hero": {
+        "subtitle": "Desenvolvedor Full-Stack & Tecnologista Criativo",
+        "description": "Criando experiências digitais bonitas, funcionais e inovadoras que unem tecnologia e criatividade.",
+        "viewWork": "Ver Meu Trabalho",
+        "contactMe": "Entre em Contato"
+    },
+    "highlights": {
+        "title": "O Que Eu Faço",
+        "description": "Combinando expertise técnica com visão criativa para entregar experiências digitais excepcionais.",
+        "items": {
+            "webDev": {
+                "title": "Desenvolvimento Web",
+                "description": "Construindo aplicações web modernas e escaláveis com tecnologias de ponta."
+            },
+            "aiAutomation": {
+                "title": "Automação com IA",
+                "description": "Utilizando IA para automatizar processos e criar soluções inteligentes."
+            },
+            "design": {
+                "title": "Design",
+                "description": "Criando designs bonitos e centrados no usuário que aprimoram a experiência."
+            },
+            "innovation": {
+                "title": "Inovação",
+                "description": "Ultrapassando limites e explorando novas possibilidades na tecnologia."
+            }
+        }
+    },
+    "about": {
+        "title": "Sobre",
+        "titleHighlight": "Mim",
+        "paragraphs": {
+            "intro": "Sou um desenvolvedor full-stack apaixonado por tecnologia e com um profundo amor por construir experiências digitais inovadoras. Minha jornada no desenvolvimento de software começou em 2023, e desde então, tenho me dedicado a dominar a arte de criar aplicações bonitas, funcionais e impactantes.",
+            "focus": "Meu foco está na interseção entre tecnologia e criatividade, onde reúno tecnologias web de ponta, automação e design cuidadoso para resolver problemas do mundo real. Acredito em escrever código limpo e manutenível, sempre mantendo a curiosidade sobre tecnologias emergentes.",
+            "current": "Atualmente, estou cursando Engenharia de Software na UNIEGO, expandindo continuamente meu conhecimento e habilidades. Quando não estou codando, você pode me encontrar explorando novas tecnologias, contribuindo para projetos open-source ou compartilhando minha jornada de aprendizado."
+        },
+        "downloadResume": "Baixar Currículo"
+    },
+    "contact": {
+        "title": "Entre em",
+        "titleHighlight": "Contato",
+        "description": "Tem um projeto em mente ou quer conversar? Adoraria ouvir você!",
+        "info": {
+            "title": "Informações de Contato",
+            "email": "E-mail",
+            "phone": "Telefone",
+            "location": "Localização",
+            "locationValue": "Brasil, Remoto"
+        },
+        "social": {
+            "title": "Me Siga"
+        },
+        "form": {
+            "name": "Nome",
+            "namePlaceholder": "Seu nome",
+            "email": "E-mail",
+            "emailPlaceholder": "seu.email@exemplo.com",
+            "message": "Mensagem",
+            "messagePlaceholder": "Sua mensagem...",
+            "send": "Enviar Mensagem",
+            "sending": "Enviando...",
+            "success": "Obrigado! Sua mensagem foi enviada com sucesso. Retornarei em breve.",
+            "error": "Ops! Algo deu errado. Por favor, tente novamente ou entre em contato diretamente por e-mail."
+        }
+    },
+    "skills": {
+        "title": "Habilidades &",
+        "titleHighlight": "Expertise",
+        "description": "Uma visão geral das minhas habilidades técnicas e profissionais.",
+        "categories": {
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "tools": "Ferramentas",
+            "softSkills": "Soft Skills"
+        }
+    },
+    "portfolio": {
+        "title": "Meu",
+        "titleHighlight": "Portfólio",
+        "description": "Uma coleção dos meus projetos e trabalhos recentes.",
+        "live": "Ver",
+        "code": "Código",
+        "viewProject": "Ver Projeto",
+        "technologies": "Tecnologias",
+        "close": "Fechar",
+        "viewDemo": "Ver Demo Ao Vivo",
+        "viewGithub": "Ver no GitHub",
+        "myRole": "Minha Função",
+        "challengesLabel": "Desafios",
+        "keyLearnings": "Aprendizados Principais",
+        "categories": {
+            "all": "Todos",
+            "webapps": "Web Apps",
+            "ai": "Projetos IA",
+            "design": "Design",
+            "experimental": "Experimental"
+        },
+        "projects": {
+            "1": {
+                "title": "Mind.IA",
+                "description": "Website oficial da mind.ia, uma agência brasileira de IA focada em automação e business intelligence.",
+                "longDescription": "Mind.IA é a plataforma digital oficial para uma agência brasileira de IA. Demonstra sua expertise em automação e business intelligence através de uma interface elegante e moderna. O site apresenta animações de alta performance, vitrines de serviços abrangentes e pontos de interação contínuos com o usuário.",
+                "role": "Desenvolvedor Líder",
+                "challenges": [
+                    "Projetar uma interface premium com muitas animações mantendo alta performance e pontuações de SEO",
+                    "Implementar um layout responsivo \"mobile-first\" com elementos interativos complexos",
+                    "Criar uma estrutura de conteúdo versátil para gerenciar serviços e cases do portfólio"
+                ],
+                "learnings": [
+                    "Padrões avançados do App Router do Next.js 14 para sites de agências",
+                    "Implementação de animações acessíveis e performáticas usando Framer Motion",
+                    "Otimização de caminhos de conversão de negócios através de componentes de UI estratégicos"
+                ]
+            },
+            "2": {
+                "title": "AI Logo Generator",
+                "description": "Gere logotipos exclusivos usando tecnologia de IA",
+                "longDescription": "Um gerador de logotipos alimentado por IA que cria logotipos profissionais e exclusivos com base em descrições e preferências do usuário.",
+                "role": "Desenvolvedor Full-Stack",
+                "challenges": [
+                    "Integrar a API da OpenAI de forma eficaz",
+                    "Otimizar a velocidade de geração de imagens",
+                    "Lidar com limites de taxa da API"
+                ],
+                "learnings": [
+                    "Padrões de integração da API da OpenAI",
+                    "Processamento e otimização de imagem",
+                    "Estratégias de limitação de taxa de API"
+                ]
+            },
+            "4": {
+                "title": "TeleCopy Pro",
+                "description": "Solução profissional de cópia de canais do Telegram para sincronização em tempo real e migração histórica",
+                "longDescription": "TeleCopy Pro é uma solução de alto desempenho para cópia de canais de Telegram. Construído com uma arquitetura moderna inspirada em microserviços, permite aos usuários sincronizar mensagens entre canais em tempo real ou realizar migrações históricas com facilidade.",
+                "role": "Desenvolvedor Full-Stack",
+                "challenges": [
+                    "Implementar manipulação robusta de conexões do Telegram com Telethon e suporte a 2FA",
+                    "Projetar uma arquitetura escalável para lidar com grandes migrações de mensagens históricas",
+                    "Integrar Stripe para gerenciamento complexo de assinaturas e faturamento"
+                ],
+                "learnings": [
+                    "Design avançado de camada de serviço com Python e FastAPI",
+                    "Monitoramento e processamento de mensagens em tempo real em escala",
+                    "Gerenciamento seguro de sessão e armazenamento criptografado para credenciais sensíveis do Telegram"
+                ]
+            },
+            "3": {
+                "title": "Portfolio Website",
+                "description": "Site de portfólio moderno com modo escuro e animações",
+                "longDescription": "Um site de portfólio moderno e responsivo construído com Next.js 14, apresentando modo escuro, animações suaves e internacionalização.",
+                "role": "Designer & Desenvolvedor",
+                "challenges": [
+                    "Criar animações suaves",
+                    "Implementar modo escuro",
+                    "Construir um sistema de i18n"
+                ],
+                "learnings": [
+                    "Técnicas de animação com Framer Motion",
+                    "Padrões de App Router do Next.js",
+                    "Melhores práticas de internacionalização"
+                ]
+            }
+        }
+    },
+    "footer": {
+        "role": "Desenvolvedor Full-Stack & Tecnologista Criativo",
+        "quickLinks": "Links Rápidos",
+        "connect": "Conecte-se",
+        "copyright": "Todos os direitos reservados.",
+        "builtWith": "Feito com Next.js, Tailwind CSS e Framer Motion"
+    },
+    "errors": {
+        "notFound": {
+            "title": "404",
+            "heading": "Página Não Encontrada",
+            "description": "Ops! A página que você está procurando não existe ou foi movida.",
+            "backHome": "Voltar ao Início"
+        }
+    },
+    "common": {
+        "loading": "Carregando...",
+        "readMore": "Leia Mais",
+        "viewAll": "Ver Todos",
+        "present": "Presente"
+    }
+}

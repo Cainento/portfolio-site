@@ -4,8 +4,13 @@ import { useState, FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import { Send, Mail, Phone, MapPin, Github, Linkedin, Youtube, Instagram } from 'lucide-react'
 import emailjs from '@emailjs/browser'
+import type { Dictionary } from '@/dictionaries'
 
-export default function ContactForm() {
+interface ContactFormProps {
+  dict: Dictionary
+}
+
+export default function ContactForm({ dict }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -57,10 +62,10 @@ export default function ContactForm() {
   }
 
   const socialLinks = [
-    { name: 'GitHub', icon: Github, href: 'https://github.com', color: 'hover:text-gray-900 dark:hover:text-white' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com', color: 'hover:text-blue-600' },
-    { name: 'YouTube', icon: Youtube, href: 'https://youtube.com/@GlobalLearner', color: 'hover:text-red-600' },
-    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com', color: 'hover:text-pink-600' },
+    { name: 'GitHub', icon: Github, href: 'https://github.com/Cainento', color: 'hover:text-gray-900 dark:hover:text-white' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/avilacainan', color: 'hover:text-blue-600' },
+    { name: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/@cainento', color: 'hover:text-red-600' },
+    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/cainento/', color: 'hover:text-pink-600' },
   ]
 
   return (
@@ -70,39 +75,41 @@ export default function ContactForm() {
         <div className="card p-6 space-y-6">
           <div>
             <h3 className="text-xl font-heading font-semibold mb-4 gradient-text">
-              Contact Information
+              {dict.contact.info.title}
             </h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-primary-500 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-gray-100">Email</p>
+                  <p className="font-medium text-gray-900 dark:text-gray-100">{dict.contact.info.email}</p>
                   <a
-                    href="mailto:contact@avilacainan.com"
+                    href="mailto:cainento@outlook.com"
                     className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
                   >
-                    contact@avilacainan.com
+                    cainento@outlook.com
                   </a>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <Phone className="w-5 h-5 text-primary-500 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-gray-100">Phone</p>
+                  <p className="font-medium text-gray-900 dark:text-gray-100">{dict.contact.info.phone}</p>
                   <a
-                    href="tel:+5511999999999"
+                    href="https://wa.me/5562986209799"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
                   >
-                    +55 11 99999-9999
+                    +55 62 986209799
                   </a>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-primary-500 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-gray-100">Location</p>
+                  <p className="font-medium text-gray-900 dark:text-gray-100">{dict.contact.info.location}</p>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Brazil, Remote
+                    {dict.contact.info.locationValue}
                   </p>
                 </div>
               </div>
@@ -110,7 +117,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <h4 className="font-heading font-semibold mb-4">Follow Me</h4>
+            <h4 className="font-heading font-semibold mb-4">{dict.contact.social.title}</h4>
             <div className="flex space-x-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon
@@ -138,7 +145,7 @@ export default function ContactForm() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-2">
-                Name
+                {dict.contact.form.name}
               </label>
               <input
                 type="text"
@@ -147,13 +154,13 @@ export default function ContactForm() {
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
-                placeholder="Your name"
+                placeholder={dict.contact.form.namePlaceholder}
               />
             </div>
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium mb-2">
-                Email
+                {dict.contact.form.email}
               </label>
               <input
                 type="email"
@@ -162,13 +169,13 @@ export default function ContactForm() {
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 required
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
-                placeholder="your.email@example.com"
+                placeholder={dict.contact.form.emailPlaceholder}
               />
             </div>
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium mb-2">
-                Message
+                {dict.contact.form.message}
               </label>
               <textarea
                 id="message"
@@ -177,7 +184,7 @@ export default function ContactForm() {
                 required
                 rows={6}
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors resize-none"
-                placeholder="Your message..."
+                placeholder={dict.contact.form.messagePlaceholder}
               />
             </div>
 
@@ -187,7 +194,7 @@ export default function ContactForm() {
                 animate={{ opacity: 1, y: 0 }}
                 className="p-4 bg-green-100 dark:bg-green-900/30 border border-green-500 text-green-700 dark:text-green-300 rounded-lg"
               >
-                Thank you! Your message has been sent successfully. I'll get back to you soon.
+                {dict.contact.form.success}
               </motion.div>
             )}
 
@@ -197,7 +204,7 @@ export default function ContactForm() {
                 animate={{ opacity: 1, y: 0 }}
                 className="p-4 bg-red-100 dark:bg-red-900/30 border border-red-500 text-red-700 dark:text-red-300 rounded-lg"
               >
-                Oops! Something went wrong. Please try again or contact me directly via email.
+                {dict.contact.form.error}
               </motion.div>
             )}
 
@@ -211,12 +218,12 @@ export default function ContactForm() {
               {isSubmitting ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  <span>Sending...</span>
+                  <span>{dict.contact.form.sending}</span>
                 </>
               ) : (
                 <>
                   <Send className="w-5 h-5" />
-                  <span>Send Message</span>
+                  <span>{dict.contact.form.send}</span>
                 </>
               )}
             </motion.button>
@@ -226,7 +233,3 @@ export default function ContactForm() {
     </div>
   )
 }
-
-
-
-

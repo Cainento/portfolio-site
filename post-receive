@@ -1,0 +1,16 @@
+#!/bin/bash
+TARGET="/home/cainan/portfolio-site"
+GIT_DIR="/home/cainan/portfolio.git"
+
+while read oldrev newrev ref
+do
+    if [[ $ref =~ .*/main$ ]];
+    then
+        echo "Master ref received.  Deploying master branch to production..."
+        git --work-tree=$TARGET --git-dir=$GIT_DIR checkout -f main
+        cd $TARGET
+        docker compose up -d --build
+    else
+        echo "Ref $ref received.  Doing nothing: only the main branch is deployed to production."
+    fi
+done

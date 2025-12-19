@@ -3,8 +3,15 @@
 import Link from 'next/link'
 import { ChevronDown } from 'lucide-react'
 import { motion } from 'framer-motion'
+import type { Dictionary } from '@/dictionaries'
+import type { Locale } from '@/i18n.config'
 
-export default function Hero() {
+interface HeroProps {
+  dict: Dictionary
+  lang: Locale
+}
+
+export default function Hero({ dict, lang }: HeroProps) {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated Background */}
@@ -58,7 +65,7 @@ export default function Hero() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 mb-8 font-medium"
           >
-            Full-Stack Developer & Creative Technologist
+            {dict.hero.subtitle}
           </motion.p>
 
           <motion.p
@@ -67,8 +74,7 @@ export default function Hero() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-12"
           >
-            Crafting beautiful, functional, and innovative digital experiences
-            that bridge technology and creativity.
+            {dict.hero.description}
           </motion.p>
 
           <motion.div
@@ -77,11 +83,11 @@ export default function Hero() {
             transition={{ delay: 0.8, duration: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <Link href="/portfolio" className="btn-primary">
-              View My Work
+            <Link href={`/${lang}/portfolio`} className="btn-primary">
+              {dict.hero.viewWork}
             </Link>
-            <Link href="/contact" className="btn-secondary">
-              Contact Me
+            <Link href={`/${lang}/contact`} className="btn-secondary">
+              {dict.hero.contactMe}
             </Link>
           </motion.div>
         </motion.div>
@@ -108,4 +114,3 @@ export default function Hero() {
     </section>
   )
 }
-

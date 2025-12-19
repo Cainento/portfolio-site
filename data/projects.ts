@@ -1,153 +1,104 @@
 export interface Project {
-  id: string
-  title: string
-  description: string
-  longDescription: string
-  image: string
-  category: 'Web Apps' | 'AI Projects' | 'Design' | 'Experimental'
-  techStack: string[]
-  liveUrl?: string
-  githubUrl?: string
-  role: string
-  challenges: string[]
-  learnings: string[]
+    id: string
+    title: string
+    description: string
+    longDescription: string
+    image: string
+    category: string
+    techStack: string[]
+    liveUrl?: string
+    githubUrl?: string
+    role: string
+    challenges: string[]
+    learnings: string[]
 }
 
 export const projects: Project[] = [
-  {
-    id: '1',
-    title: 'AcheiGO Platform',
-    description: 'A comprehensive platform for discovering and connecting local businesses.',
-    longDescription: 'AcheiGO is a full-stack platform designed to help users discover local businesses and services in their area. The platform features real-time search, business listings, user reviews, and interactive maps.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
-    category: 'Web Apps',
-    techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'MongoDB'],
-    liveUrl: 'https://acheigo.com',
-    githubUrl: 'https://github.com',
-    role: 'Full-Stack Developer & Lead Architect',
-    challenges: [
-      'Implementing real-time search with high performance',
-      'Managing complex state across multiple components',
-      'Optimizing database queries for fast response times',
-    ],
-    learnings: [
-      'Advanced Next.js server-side rendering techniques',
-      'Database optimization and indexing strategies',
-      'Building scalable RESTful APIs',
-    ],
-  },
-  {
-    id: '2',
-    title: 'AI Content Generator',
-    description: 'An intelligent tool that generates high-quality content using AI.',
-    longDescription: 'This AI-powered content generator helps users create blog posts, social media content, and marketing copy. It uses advanced NLP models to understand context and generate relevant, engaging content.',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800',
-    category: 'AI Projects',
-    techStack: ['Python', 'React', 'OpenAI API', 'FastAPI', 'PostgreSQL'],
-    liveUrl: 'https://demo.example.com',
-    githubUrl: 'https://github.com',
-    role: 'AI Engineer & Full-Stack Developer',
-    challenges: [
-      'Integrating multiple AI models seamlessly',
-      'Handling rate limits and API costs',
-      'Ensuring content quality and relevance',
-    ],
-    learnings: [
-      'Advanced prompt engineering techniques',
-      'API optimization and caching strategies',
-      'Working with large language models',
-    ],
-  },
-  {
-    id: '3',
-    title: 'E-Commerce Dashboard',
-    description: 'A modern admin dashboard for managing e-commerce operations.',
-    longDescription: 'A comprehensive dashboard built for e-commerce businesses to manage products, orders, customers, and analytics. Features real-time updates, data visualization, and automated reporting.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
-    category: 'Web Apps',
-    techStack: ['React', 'TypeScript', 'Material-UI', 'Chart.js', 'Node.js'],
-    liveUrl: 'https://demo.example.com',
-    githubUrl: 'https://github.com',
-    role: 'Frontend Developer',
-    challenges: [
-      'Building complex data visualizations',
-      'Managing large datasets efficiently',
-      'Creating intuitive user interfaces',
-    ],
-    learnings: [
-      'Advanced React patterns and hooks',
-      'Data visualization best practices',
-      'Performance optimization techniques',
-    ],
-  },
-  {
-    id: '4',
-    title: 'Creative Portfolio Website',
-    description: 'A stunning portfolio website showcasing creative work.',
-    longDescription: 'A visually striking portfolio website featuring smooth animations, interactive elements, and a unique design system. Built with modern web technologies and best practices.',
-    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800',
-    category: 'Design',
-    techStack: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'TypeScript'],
-    liveUrl: 'https://demo.example.com',
-    githubUrl: 'https://github.com',
-    role: 'UI/UX Designer & Developer',
-    challenges: [
-      'Creating smooth animations without performance issues',
-      'Ensuring accessibility while maintaining visual appeal',
-      'Optimizing for various screen sizes',
-    ],
-    learnings: [
-      'Advanced animation techniques with Framer Motion',
-      'Accessibility best practices',
-      'Responsive design patterns',
-    ],
-  },
-  {
-    id: '5',
-    title: 'Blockchain Voting System',
-    description: 'A secure, transparent voting system built on blockchain technology.',
-    longDescription: 'An experimental voting system that leverages blockchain technology to ensure transparency, security, and immutability of votes. Features real-time verification and anonymous voting.',
-    image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800',
-    category: 'Experimental',
-    techStack: ['Solidity', 'Web3.js', 'React', 'Ethereum', 'Node.js'],
-    liveUrl: 'https://demo.example.com',
-    githubUrl: 'https://github.com',
-    role: 'Blockchain Developer',
-    challenges: [
-      'Understanding blockchain consensus mechanisms',
-      'Implementing secure smart contracts',
-      'Managing gas costs and optimization',
-    ],
-    learnings: [
-      'Smart contract development and security',
-      'Web3 integration patterns',
-      'Blockchain architecture principles',
-    ],
-  },
-  {
-    id: '6',
-    title: 'Real-time Collaboration Tool',
-    description: 'A collaborative workspace for teams to work together in real-time.',
-    longDescription: 'A powerful collaboration tool that enables teams to work together in real-time. Features include shared whiteboards, document editing, video conferencing, and task management.',
-    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800',
-    category: 'Web Apps',
-    techStack: ['React', 'Socket.io', 'Node.js', 'MongoDB', 'WebRTC'],
-    liveUrl: 'https://demo.example.com',
-    githubUrl: 'https://github.com',
-    role: 'Full-Stack Developer',
-    challenges: [
-      'Implementing real-time synchronization',
-      'Handling concurrent edits',
-      'Managing WebRTC connections',
-    ],
-    learnings: [
-      'WebSocket programming and real-time systems',
-      'Operational transformation algorithms',
-      'Video streaming and conferencing technologies',
-    ],
-  },
+    {
+        id: '1',
+        title: 'Mind.IA',
+        description: 'Official website for mind.ia, a Brazilian AI agency focusing on automation and business intelligence.',
+        longDescription: 'Mind.IA is the official digital platform for a Brazilian AI agency. It showcases their expertise in automation and business intelligence through a sleek, modern interface. The site features high-performance animations, comprehensive service showcases, and seamless user interaction points.',
+        image: '/mindia-screenshot.png',
+        category: 'Web Apps',
+        techStack: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Lucide React'],
+        liveUrl: 'https://mind-ai-theta.vercel.app',
+        githubUrl: 'https://github.com/Cainento/mind.ai',
+        role: 'Lead Developer',
+        challenges: [
+            'Designing a premium, animation-heavy interface that maintains high performance and SEO scores',
+            'Implementing a responsive "mobile-first" layout with complex interactive elements',
+            'Creating a versatile content structure to manage services and portfolio cases',
+        ],
+        learnings: [
+            'Advanced Next.js 14 App Router patterns for agency sites',
+            'Implementing accessible and performant animations using Framer Motion',
+            'Optimizing business conversion paths through strategic UI components',
+        ],
+    },
+    {
+        id: '2',
+        title: 'AI Logo Generator',
+        description: 'Generate unique logos using AI technology',
+        longDescription: 'An AI-powered logo generator that creates unique, professional logos based on user descriptions and preferences.',
+        image: '/logogen-screenshot.png',
+        category: 'AI Projects',
+        techStack: ['React', 'OpenAI API', 'Node.js', 'Firebase'],
+        liveUrl: 'https://logo-gen-rho.vercel.app',
+        githubUrl: 'https://github.com/Cainento/LogoGen',
+        role: 'Full-Stack Developer',
+        challenges: [
+            'Integrating OpenAI API effectively',
+            'Optimizing image generation speed',
+            'Handling API rate limits',
+        ],
+        learnings: [
+            'OpenAI API integration patterns',
+            'Image processing and optimization',
+            'API rate limiting strategies',
+        ],
+    },
+    {
+        id: '4',
+        title: 'TeleCopy Pro',
+        description: 'Professional-grade Telegram channel copying solution for real-time synchronization and historic migration',
+        longDescription: 'TeleCopy Pro is a high-performance, professional-grade Telegram channel copying solution. Built with a modern microservices-inspired architecture, it allows users to synchronize messages between channels in real-time or perform historical migrations with ease.',
+        image: '/telecopy-screenshot.png',
+        category: 'Web Apps',
+        techStack: ['FastAPI', 'Next.js', 'PostgreSQL', 'Stripe', 'Telethon', 'Docker', 'TypeScript'],
+        liveUrl: 'https://tele-copy-pro.vercel.app',
+        githubUrl: 'https://github.com/Cainento/teleCopyPro',
+        role: 'Full-Stack Developer',
+        challenges: [
+            'Implementing robust Telegram connection handling with Telethon and 2FA support',
+            'Designing a scalable architecture for handling large historical message migrations',
+            'Integrating Stripe for complex subscription management and billing',
+        ],
+        learnings: [
+            'Advanced Python and FastAPI service layer design',
+            'Real-time message monitoring and processing at scale',
+            'Secure session management and encrypted storage for sensitive Telegram credentials',
+        ],
+    },
+    {
+        id: '3',
+        title: 'Portfolio Website',
+        description: 'Modern portfolio website with dark mode and animations',
+        longDescription: 'A modern, responsive portfolio website built with Next.js 14, featuring dark mode, smooth animations, and internationalization.',
+        image: '/portfolio-screenshot.png',
+        category: 'Web Apps',
+        techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+        githubUrl: 'https://github.com/Cainento/portfolio-site',
+        role: 'Designer & Developer',
+        challenges: [
+            'Creating smooth animations',
+            'Implementing dark mode',
+            'Building an i18n system',
+        ],
+        learnings: [
+            'Framer Motion animation techniques',
+            'Next.js App Router patterns',
+            'Internationalization best practices',
+        ],
+    },
 ]
-
-
-
-

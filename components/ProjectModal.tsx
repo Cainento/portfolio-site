@@ -4,13 +4,17 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { X, ExternalLink, Github } from 'lucide-react'
 import { Project } from '@/data/projects'
+import type { Dictionary } from '@/dictionaries'
 
 interface ProjectModalProps {
   project: Project
   onClose: () => void
+  dict: Dictionary
 }
 
-export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+export default function ProjectModal({ project, onClose, dict }: ProjectModalProps) {
+  const projectDict = dict.portfolio.projects[project.id as keyof typeof dict.portfolio.projects]
+
   return (
     <AnimatePresence>
       <motion.div
@@ -31,7 +35,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <button
             onClick={onClose}
             className="absolute top-4 right-4 z-10 p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            aria-label="Close modal"
+            aria-label={dict.portfolio.close}
           >
             <X className="w-5 h-5" />
           </button>
@@ -42,12 +46,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               src={project.image}
               alt={project.title}
               fill
+              sizes="(max-width: 896px) 100vw, 896px"
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
               <span className="px-4 py-2 bg-primary-500 text-white rounded-full">
-                {project.category}
+                {dict.portfolio.categories[project.category === 'AI Projects' ? 'ai' : project.category.toLowerCase().replace(' ', '') as keyof typeof dict.portfolio.categories] || project.category}
               </span>
             </div>
           </div>
@@ -55,10 +60,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* Content */}
           <div className="p-6 md:p-8">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-              {project.title}
+              {projectDict?.title || project.title}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
-              {project.longDescription}
+              {projectDict?.longDescription || project.longDescription}
             </p>
 
             {/* Links */}
@@ -71,7 +76,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   className="btn-primary inline-flex items-center space-x-2"
                 >
                   <ExternalLink className="w-5 h-5" />
-                  <span>View Live Demo</span>
+                  <span>{dict.portfolio.viewDemo}</span>
                 </a>
               )}
               {project.githubUrl && (
@@ -82,20 +87,24 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   className="btn-secondary inline-flex items-center space-x-2"
                 >
                   <Github className="w-5 h-5" />
-                  <span>View on GitHub</span>
+                  <span>{dict.portfolio.viewGithub}</span>
                 </a>
               )}
             </div>
 
             {/* Role */}
             <div className="mb-6">
-              <h3 className="text-xl font-heading font-semibold mb-2">My Role</h3>
-              <p className="text-gray-600 dark:text-gray-400">{project.role}</p>
+              <h3 className="text-xl font-heading font-semibold mb-2">
+                {dict.portfolio.myRole}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400">{projectDict?.role || project.role}</p>
             </div>
 
             {/* Tech Stack */}
             <div className="mb-6">
-              <h3 className="text-xl font-heading font-semibold mb-3">Tech Stack</h3>
+              <h3 className="text-xl font-heading font-semibold mb-3">
+                {dict.portfolio.technologies}
+              </h3>
               <div className="flex flex-wrap gap-2">
                 {project.techStack.map((tech) => (
                   <span
@@ -110,9 +119,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             {/* Challenges */}
             <div className="mb-6">
-              <h3 className="text-xl font-heading font-semibold mb-3">Challenges</h3>
+              <h3 className="text-xl font-heading font-semibold mb-3">
+                {dict.portfolio.challengesLabel}
+              </h3>
               <ul className="space-y-2">
-                {project.challenges.map((challenge, index) => (
+                {(projectDict?.challenges || project.challenges).map((challenge, index) => (
                   <li key={index} className="flex items-start space-x-2 text-gray-600 dark:text-gray-300">
                     <span className="text-primary-500 mt-1">•</span>
                     <span>{challenge}</span>
@@ -123,9 +134,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             {/* Learnings */}
             <div>
-              <h3 className="text-xl font-heading font-semibold mb-3">Key Learnings</h3>
+              <h3 className="text-xl font-heading font-semibold mb-3">
+                {dict.portfolio.keyLearnings}
+              </h3>
               <ul className="space-y-2">
-                {project.learnings.map((learning, index) => (
+                {(projectDict?.learnings || project.learnings).map((learning, index) => (
                   <li key={index} className="flex items-start space-x-2 text-gray-600 dark:text-gray-300">
                     <span className="text-primary-500 mt-1">•</span>
                     <span>{learning}</span>
@@ -139,7 +152,3 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     </AnimatePresence>
   )
 }
-
-
-
-
